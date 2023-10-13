@@ -1,0 +1,72 @@
+---
+title: "STAT570 - Lecture2"
+author: "Fulya Gökalp Yavuz"
+format:
+  html: 
+    code-fold: true
+    html-math-method: katex
+  pdf:
+    geometry: 
+      - top=30mm
+      - left=30mm
+editor: visual
+toc: true
+number-sections: true
+---
+
+For this lecture, you need:
+
+-   R version \>= 4.2.0
+
+-   RStudio \>= 2023.03.1
+
+# **Install R**
+
+Download and install R for your operating system from <https://cloud.r-project.org/>.
+
+### **Install R Studio**
+
+Download and install RStudio Desktop from <https://posit.co/download/rstudio-desktop/>. This page should automatically offer you the version suitable for your operating system, but you can scroll down to find versions for all operating systems.
+
+# Github Account
+
+Register a GitHub account at [github.com](https://github.com/).
+
+## **Check link between R and GitHub**
+
+Configure your `user.name` and `user.email` for git in RStudio with:
+
+``` r
+usethis::use_git_config(
+  user.name = "Charlie Brown",          # actual first and last name
+  user.email = "brown@example.com"  # email associated with GitHub account
+  )
+```
+
+Communicating with GitHub requires authentication with your GitHub account. This is achieved by creating and securely storing a Personal Access Token (PAT). The [Managing Git(Hub) Credentials](https://usethis.r-lib.org/articles/articles/git-credentials.html) vignette in the **`usethis`** ([Wickham et al. 2023](https://posit-conf-2023.github.io/pkg-dev/setup.html#ref-usethis)) package has details on using PATs, but for now the following should suffice.
+
+Make sure you are connected to the GitHub Account from R. Before going to use_github(), we have to take the token by typing:
+
+```{r, eval=FALSE}
+usethis::create_github_token()
+```
+
+Write something to the decsription. Take the token from there and type in console:
+
+```{r, eval=FALSE}
+gitcreds::gitcreds_set()
+```
+
+Paste the token there and we are good to go.
+
+Highly recommended book [Happy Git with R](https://happygitwithr.com/) for advice on setting up and using Git with R ([Bryan and Hester, n.d.](https://posit-conf-2023.github.io/pkg-dev/setup.html#ref-bryan)).
+
+## Connect your RStudio to a GitHub Repository
+
+Create you repository in **GitHub** and copy the link from Github Code\>\>Clone\>\>HTTPS. Then move back to **RStudio** and `File>>New Project>>Version Control>>Git>>Clone Git Repository` and paste your link to URL and create a new Project.
+
+## References:
+
+<https://posit-conf-2023.github.io/pkg-dev/setup.html#install-r-package-development-tools>
+
+Github and RStudio: <https://resources.github.com/github-and-rstudio/>
